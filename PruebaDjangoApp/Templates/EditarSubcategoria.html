@@ -1,0 +1,24 @@
+{% extends "./index.html"%} 
+{% block title %} Agregar Inventarios {% endblock %}
+<head>
+   
+</head>
+<body>
+  
+  {% block body %}
+    <div class="nuevoP">
+    <h1>Edicion subcategoria</h1>
+    <form  method="post" action="/CategoriaPutGuardar/{{subcategoria.id}}/"  >{% csrf_token %}
+        <input type="text" id="nombre" name="nombre" class="Btname" placeholder="nombre" required value={{subcategoria.nombre}}>
+      <input type="text" id="nombre" name="nombre" class="Btname" placeholder="nombre" value={{subcategoria.nombre}} required>
+      <input type="text" id="descripcion" name="descripcion" class="Btname" placeholder="descripcion" value={{subcategoria.descripcion}} required>
+      
+      
+      <button type="submit">Guardar</button>
+
+  
+      </form>
+    </div>
+    {% endblock %}
+   
+</body>

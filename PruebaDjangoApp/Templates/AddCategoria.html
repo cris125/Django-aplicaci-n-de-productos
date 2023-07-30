@@ -1,0 +1,38 @@
+
+{% extends "./index.html"%} 
+{% block title %} Agregar Inventarios {% endblock %}
+<head>
+ 
+</head>
+<body>
+  
+  
+  {% block body %}
+  <div class="tabla">
+    <h1>Lista categoria</h1>
+    <table class="table" >
+        <tr>
+          <td class="tit">id</td>
+          <td class="tit">Nombre</td>
+        </tr>
+        {% for x in categoria %}
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.nombre}}</td>
+        <td class="EdEltb"><a class="EdEl" href="/CategoriaPut/{{x.id}}/" >Editar</a></td>
+        <td class="EdEltb"><a  class="EdEl" href="/CategoriaDelete/{{x.id}}/" > Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<div class="nuevoP">
+    <h1>Agregar Categoria</h1>
+    <form  method="post" action="/Categoria/"  >{% csrf_token %}
+      <input type="text" id="nombre" name="nombre" class="Btname" placeholder="nombre" required>
+      <button type="submit">Guardar</button>
+
+    </form>
+   
+    {% endblock %}
+</div>  
+</body>

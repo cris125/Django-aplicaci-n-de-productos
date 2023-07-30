@@ -1,0 +1,1 @@
+web: gunicorn Agencia_de_Viajes.wsgi

@@ -1,0 +1,39 @@
+{% extends "./index.html"%} 
+{% block title %} Agregar Inventarios {% endblock %}
+<head>
+    <style>
+     
+    </style>
+</head>
+<body>
+  {% block body %}
+  <div class="Articule">
+  <div class="contnedosBt">
+      <h1><a class="botones" href="/EditCategoria/">Categorias</a></h1>
+      <h1><a class="botones" href="/EditSubcategoria/">Subcategorias</a></h1>
+      <h1><a class="botones" href="/EditProductos/">Producto</a></h1>
+  </div>   
+    
+    
+    <section class="aculProduc">
+      {% for x in productos %}
+        <article>
+          <img src="/{{x.foto}}" alt="Mi imagen">
+          <p><strong>Nombre Producto:</strong> {{ x.nombre}}</p>
+          {% for a in subcategoria %}
+            {% if a.id == x.subcategoria_id %}
+             <p><strong>Subcategoria:</strong> {{ a.nombre}}</p>
+            {% else %}
+              <p><strong>Subcategoria:</strong> No tiene</p>
+            {% endif %}
+          {% endfor %}
+        </article>
+        
+      {% endfor %}
+    </section>
+    </div>
+    
+  
+    {% endblock %}
+    
+</body>

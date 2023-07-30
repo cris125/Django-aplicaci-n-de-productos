@@ -1,0 +1,19 @@
+{% extends "./index.html"%} 
+{% block title %} Agregar Inventarios {% endblock %}
+<head>
+   
+</head>
+<body>
+  
+  {% block body %}
+    <div class="nuevoP">
+    <h1>Edicion categoria</h1>
+    <form  method="post" action="/CategoriaPutGuardar/{{categoria.id}}/"  >{% csrf_token %}
+        <input type="text" id="nombre" name="nombre" class="Btname" placeholder="nombre" required value={{categoria.nombre}}>
+        <button type="submit">Guardar</button>
+  
+      </form>
+    </div>
+    {% endblock %}
+   
+</body>

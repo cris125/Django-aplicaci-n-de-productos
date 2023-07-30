@@ -1,0 +1,26 @@
+
+{% extends "./index.html"%} 
+{% block title %} Agregar Inventarios {% endblock %}
+<head>
+  <!-- Agrega esto en el <head> de tu plantilla -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+ 
+</head>
+<body>
+  
+  
+  {% block body %}
+  
+<div class="nuevoP">
+    <h1>Login</h1>
+    <form id="loginForm" method="post" action="/login/">
+      {% csrf_token %}
+      <input type="text" id="username" name="username" class="Btname" placeholder="usuarios" required>
+      <input type="password" id="password" name="password" class="Btname" placeholder="password" required>
+      <button type="submit">Guardar</button>
+  </form>
+    {% endblock %}
+</div>  
+</body>
+    

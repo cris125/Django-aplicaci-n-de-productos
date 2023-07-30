@@ -1,0 +1,4 @@
+from PruebaDjangoApp.serializers.userSerializer import UserSerializer
+from PruebaDjangoApp.serializers.CategoriasSerializer import Categorias
+from PruebaDjangoApp.serializers.subcategoriasSerializer import Subcategorias
+from PruebaDjangoApp.serializers.ProductosSerializer import Productos

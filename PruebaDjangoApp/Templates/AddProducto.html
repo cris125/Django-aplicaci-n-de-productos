@@ -1,0 +1,53 @@
+{% extends "./index.html"%} 
+{% block title %} Agregar Inventarios {% endblock %}
+
+<head>
+    <style>
+        
+    </style>
+</head>
+<body>
+    {% block body %}
+    
+    <table class="tabla" >
+        <tr class="pq">
+          <td class="tit">id</td>
+          <td class="tit">Nombre</td>
+          <td class="tit">descripcion</td>
+          <td class="tit">Precio</td>
+          <td class="tit">foto</td>
+          <td class="tit">Cantidad</td>
+          <td class="tit">supcategoria_id</td>
+         
+        </tr>
+        {% for x in productos %}
+        <tr class="pq">
+            <td>{{ x.id }}</td>
+            <td>{{ x.nombre}}</td>
+            <td>{{ x.descripción }}</td>
+            <td>{{ x.precio}}</td>
+            <td class="xdtd"><img src="/{{x.foto}}" alt="Mi imagen"></td>
+            <td>{{ x.cantidad }}</td>
+            <td>{{ x.subcategoria_id }}</td>
+        <td class="EdEltb"><a class="EdEl" href="/ProductosPut/{{x.id}}/" >Editar</a></td>
+        <td class="EdEltb"><a  class="EdEl" href="/ProductosDelete/{{x.id}}/" > Eliminar</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form method="post" action="/Productos/" enctype="multipart/form-data" class="qw">{% csrf_token %}
+    
+          <input type="text" id="nombre" class="Btname" name="nombre" placeholder="nombre" required>
+          <input type="text" id="descripción" class="Btname" name="descripción" placeholder="descripción" required>
+          
+          <input type="number" id="precio" class="Btname" name="precio" placeholder="precio"required>
+          <input type="number" id="subcategoria" class="Btname" name="subcategoria" placeholder="id subcategoria"required>
+
+          <input type="number" id="cantidad" class="Btname" name="cantidad" placeholder="cantidad" required>
+          
+          <input type="file" id="foto" class="Btname" name="foto" accept="image/*" >
+       
+          <button type="submit">Enviar</button>
+        
+      </form>
+      {% endblock %}
+</body>
