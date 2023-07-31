@@ -6,6 +6,7 @@
 <body>
   
   {% block body %}
+  
     <div class="nuevoP">
     <h1>Edicion categoria</h1>
     <form  method="post" action="/CategoriaPutGuardar/{{categoria.id}}/"  >{% csrf_token %}

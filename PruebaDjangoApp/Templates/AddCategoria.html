@@ -8,6 +8,8 @@
   
   
   {% block body %}
+<div class="ArticuleForm">
+  <button id="Abrir">Agregar Categoria</button>
   <div class="tabla">
     <h1>Lista categoria</h1>
     <table class="table" >
@@ -25,14 +27,26 @@
         {% endfor %}
     </table>
 </div>
-<div class="nuevoP">
-    <h1>Agregar Categoria</h1>
+
+  <dialog id="VentanaDes">
+    
     <form  method="post" action="/Categoria/"  >{% csrf_token %}
       <input type="text" id="nombre" name="nombre" class="Btname" placeholder="nombre" required>
       <button type="submit">Guardar</button>
 
     </form>
-   
+    <button id="Cerrar">Cerrar</button>
+ 
+  </dialog>
+
+  <script>
+      const botonAbrir=document.querySelector("#Abrir")
+      const botonCerrar=document.querySelector("#Cerrar")
+      const ventana=document.querySelector("#VentanaDes")
+      botonAbrir.addEventListener("click",()=>{ventana.showModal();})
+      botonCerrar.addEventListener("click",()=>{ventana.close();})
+  </script>
+  
     {% endblock %}
 </div>  
 </body>

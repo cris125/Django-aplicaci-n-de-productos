@@ -16,7 +16,7 @@ class SubcategoriasView(views.APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
                        
-        return redirect('/EditCategoria/')
+        return redirect('/EditSubcategoria/')
     
     
     def get(self, request, *args, **kwargs):
