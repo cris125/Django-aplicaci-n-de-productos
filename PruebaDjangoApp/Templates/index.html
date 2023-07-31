@@ -5,9 +5,7 @@
   <head>
     
     <style>
-      label{
-        
-      }
+      
       body{
         background-color: #100c2c;
           display: flex;
@@ -15,7 +13,9 @@
           justify-content: center;
           align-items: center;
           margin:0px;
+          
       }
+      
       .head{
         width: 100%;
         background-color: rgb(247, 248, 255)
@@ -33,12 +33,7 @@
       }a{
         text-decoration: none
       }
-      .Cositas{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-      }
+      
       .tabla{
         display: flex;
         flex-direction: column;
@@ -56,6 +51,7 @@
        font-size: small;
       }
     /* contenido */
+
     table{
       margin: 0.5em;
     }
@@ -75,44 +71,72 @@
       color: rgb(91, 91, 91);
      
     }
+    tr:nth-child(odd) {
+    background-color: white;
+  }
+
+    tr:nth-child(even) {
+    background-color: rgb(222, 217, 229);
+  }
+    .xdtd img{
+      width: 150px !important;
+      background-color: aqua;
+      height: 150px;
+    }
+
+    /*fomularios*/
     .nuevoP{
+      align-items: center;
+      align-content: center;
+      align-self: center;
+      justify-content: center;
+
+      width:  20em;
       display: flex;
+      margin: 1em;
+      margin-top:5em  !important;
       flex-direction: column;
-      background-color: rgb(255, 255, 255);
+      background-color: rgb(248, 239, 239);
       border-radius: 5px;
       border:3px solid rgb(154, 154, 154);
-      margin: 1em;
+      
     }
     .nuevoP h1{
       margin: 1em;
       margin-block-end: -0.2em;
     }
     form{
+      
       display: flex;
       flex-direction: column;
+      width: 85%;
       margin: 1em; 
     }
     form input,button,a{
+      
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-size: large;
       margin: 0.2em;
     }
     form button,a{
-      background-color: rgba(163, 163, 255, 0.228);
+      background-color: rgba(32, 32, 76, 0.228);
       font-weight: bold;
     }
     form button:hover{
       background-color: rgba(102, 102, 240, 0.911);
     }
+    /*fin fomularios*/
+    
     .EdEl,a{
       color: black;
       font-weight: bold;
     }
-    .EdEltb,a{
+    a{
       background-color: rgba(163, 163, 255, 0.228);
     }
-    .EdEltb:hover{
-      background-color: rgba(189, 189, 189, 0.911);
+    a:hover{
+      color: rgb(112, 112, 112);
+      filter: brightness(200%)
     }
     ul {
       list-style: none;
@@ -137,7 +161,7 @@
     .left {
       float: left;
     }
-
+    
     .right {
       float: right;
       
@@ -151,20 +175,26 @@
       color: white;
     }
     .botones{
-        padding: 50px;
         display: block;
-        
+        color: rgb(255, 255, 255);
+        width: 20em !important; 
+        height: 2.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    
       }
     .contnedosBt{
-      display: flex;
-      justify-content: end;
-      align-items: end;
-      align-content:end;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(20em,1fr));
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      justify-items: center;
     }
-    .Articule{
-      display: flex;
-      flex-direction: column;
-    }
+    
     .qw{
             background-color: aliceblue;
             padding:1.5em;
@@ -174,33 +204,64 @@
             font-size: small;
         }
     
+    /*fotos productos */
+    .contenido{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        margin: 0 auto;
+      
+      }
+    .Articule{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+      margin: 3em;
+    }
     .aculProduc{
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
       width:100%;
-      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(325px,1fr));
+      
     }
     .aculProduc img{
-      width: 100%;
-      height: 300px;
+      width: 14em;
+      height: 18em;
       border-radius: 5px;
     }
     .aculProduc article{
-      
-      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      font-size: 1em!important;
-      padding: 1em;
       justify-content: center;
       align-items: center;
       align-content: center;
       text-align: center;
       color: rgb(253, 251, 251);
+      margin: 1em;
     }
-    .xdtd img{
-      width: 150px !important;
-      background-color: aqua;
-      height: 150px;
+    .aculProduc article p{
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 0.9em;
     }
+    .buttonProductos{
+      padding: 0em  !important;
+
+    }
+    .buttonProductos:hover{
+      filter: brightness(70%)
+    }
+    .h1Productos{
+      background-color: rgba(163, 163, 255, 0.228);
+      color: rgba(255, 255, 255, 0.988);
+      width: 100%;
+      font-weight:500;
+    }
+    /* fin imagenes productos  */
     </style>
     
     
@@ -210,18 +271,15 @@
       <ul>
         <li class="right"><a class="nav" href="/logOut/">{{palabra}}</a></li>
         <li class="left"><a class="nav" href="/user/home/">Home</a></li>
-        <li class="right"><a class="nav" href="/login/">Login</a></li>
-        <li class="right"><a class="nav" href="/userCreate/">Sign up</a></li>
+        <li class="right"><a class="nav" href="/login/">{{login}}</a></li>
+        <li class="right"><a class="nav" href="/userCreate/">{{signup}}</a></li>
         
         
       </ul>
     </nav>
-  <article class="Cositas">
+  <article class="contenido">
     
-      
-          
-        
-    
+
     {% block body %}
     
     {% endblock %}

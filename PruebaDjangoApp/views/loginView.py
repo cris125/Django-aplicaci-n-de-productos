@@ -10,10 +10,22 @@ def login_view(request):
             login(request, user)
             return redirect('pagina_administracion_usuario')  
         else:
-            
-            return render(request, 'login.html', {'error': 'Credenciales inválidas'})
+            from django.template import loader
+            from django.http import HttpResponse
+            template = loader.get_template('login.html')
+            loginn="Login"
+            signupn="Sing Up"
+            context = {
+                'login': loginn,
+                'signup':signupn,}          
+            return render(request, 'login.html',context, {'error': 'Credenciales inválidas'})
     else:
-        return render(request, 'login.html')
+        loginn="Login"
+        signupn="Sing Up"
+        context = {
+                'login': loginn,
+                'signup':signupn,}
+        return render(request, 'login.html',context)
     
 def logout_view(request):
     logout(request)
