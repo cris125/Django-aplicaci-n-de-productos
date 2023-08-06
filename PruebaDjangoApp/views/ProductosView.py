@@ -25,5 +25,16 @@ class ProductosView(views.APIView):
         productos = Productos.objects.all()
         serializer = ProductosSerializer(productos, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def editarP(self, request, *args, **kwargs):
+        pk=kwargs
+        serializer = ProductosSerializer( data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        
+        productos =Productos.objects.get(pk=pk)
+        productos.delete()
+        return redirect('/EditSubcategoria/')    
+        
 
    

@@ -10,7 +10,6 @@
     <button id="Abrir">Agregar Producto</button>
     <table class="tabla" >
         <tr class="pq">
-          <td class="tit">id</td>
           <td class="tit">Nombre</td>
           <td class="tit">descripcion</td>
           <td class="tit">Precio</td>
@@ -21,7 +20,6 @@
         </tr>
         {% for x in productos %}
         <tr class="pq">
-            <td>{{ x.id }}</td>
             <td>{{ x.nombre}}</td>
             <td>{{ x.descripción }}</td>
             <td>{{ x.precio}}</td>
@@ -35,17 +33,17 @@
     </table>
     
     <dialog id="VentanaDes">
-
+    
     <form method="post" action="/Productos/" enctype="multipart/form-data" class="qw">{% csrf_token %}
     
           <input type="text" id="nombre" class="Btname" name="nombre" placeholder="nombre" required>
           <input type="text" id="descripción" class="Btname" name="descripción" placeholder="descripción" required>
           
           <input type="number" id="precio" class="Btname" name="precio" placeholder="precio"required>
-          <input type="number" id="subcategoria" class="Btname" name="subcategoria" placeholder="id subcategoria"required>
-
           <input type="number" id="cantidad" class="Btname" name="cantidad" placeholder="cantidad" required>
           
+          <input type="number" id="subcategoria" class="Btname" name="subcategoria" placeholder="id subcategoria" min="1" max="{{subcategoria}}" required>
+
           <input type="file" id="foto" class="Btname" name="foto" accept="image/*" >
        
           <button type="submit">Enviar</button>
@@ -59,6 +57,8 @@
         const ventana=document.querySelector("#VentanaDes")
         botonAbrir.addEventListener("click",()=>{ventana.showModal();})
         botonCerrar.addEventListener("click",()=>{ventana.close();})
+        
+
     </script>
     </div>
     {% endblock %}

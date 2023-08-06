@@ -8,10 +8,10 @@
   {% block body %}
     <div class="nuevoP">
     <h1>Edicion subcategoria</h1>
-    <form  method="post" action="/CategoriaPutGuardar/{{subcategoria.id}}/"  >{% csrf_token %}
-        <input type="text" id="nombre" name="nombre" class="Btname" placeholder="nombre" required value={{subcategoria.nombre}}>
-      <input type="text" id="nombre" name="nombre" class="Btname" placeholder="nombre" value={{subcategoria.nombre}} required>
-      <input type="text" id="descripcion" name="descripcion" class="Btname" placeholder="descripcion" value={{subcategoria.descripcion}} required>
+    <form  method="post" action="/SubcategoriaPutGuardar/{{subcategoria.id}}/"  >{% csrf_token %}
+      <input type="text" id="nombre" name="nombre" class="Btname" placeholder="nombre" value="{{subcategoria.nombre}}">
+  
+      <input type="text" id="descripcion" name="descripcion" class="Btname" placeholder="descripcion" value="{{subcategoria.descripcion}}" >
       
       
       <button type="submit">Guardar</button>

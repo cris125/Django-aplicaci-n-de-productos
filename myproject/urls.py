@@ -33,7 +33,7 @@ path('EditSubcategoria/', views.SubcategoriasView2.categoria),
 path('Productos/', views.ProductosView.as_view()),
 path('Productos/<int:pk>/', views.ProductosView.as_view()),
 path('ProductosPut/<int:pk>/', views.ProductosView2.edicionP),
-path('ProductosPutGuardar/<int:pk>/', views.ProductosView2.editarP),
+path('ProductosPutGuardar/<int:pk>/',views.ProductosView2.editarP),
 path('ProductosDelete/<int:pk>/', views.ProductosView2.delete),
 path('EditProductos/', views.ProductosView2.categoria),
 

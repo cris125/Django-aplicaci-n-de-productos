@@ -13,6 +13,14 @@ from PruebaDjangoApp.serializers.ProductosSerializer import ProductosSerializer
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+
+from django.shortcuts import get_object_or_404
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from PruebaDjangoApp.models import Subcategorias
+
+
 @login_required
 def add(request):
     queryset =Productos.objects.all()
@@ -25,10 +33,9 @@ def add(request):
 
 @login_required    
 def delete( request, pk):
-      productos =Productos.objects.get(pk=pk)
-      productos.delete()
-      messages.success(request, '¡Productos eliminado!')
-      return redirect("/EditProductos/")
+  productos =Productos.objects.get(pk=pk)
+  productos.delete()
+  return redirect("/EditProductos/")
 
 @login_required
 def edicionP(request, pk):
@@ -37,30 +44,41 @@ def edicionP(request, pk):
 
 @login_required
 def editarP(request,pk):
+    
     nombre = request.POST['nombre']
-    descripción=request.POST['descripción']
-    precio=request.POST['precio']
-    foto=request.POST['foto']
-    cantidad=request.POST['cantidad']
-    subcategoria=request.POST['subcategoria']
-
+    descripcion = request.POST['descripción']
+    precio = request.POST['precio']
+    cantidad = request.POST['cantidad']
+    foto = request.FILES["foto"]
+    subcategoria_id=request.POST["subcategoria"]
+    subcategoria = Subcategorias.objects.get(pk=subcategoria_id)
+  
+    
     producto = Productos.objects.get(pk=pk)
+    
     producto.nombre = nombre
-    producto.descripción=descripción
+    producto.descripción=descripcion
     producto.precio=precio
     producto.foto=foto
     producto.cantidad =cantidad 
-    producto.subcategoria=subcategoria
+
+    producto.subcategoria = subcategoria
+   
     producto.save()
     
-
     return redirect('/EditProductos/')
+    
 
+    
+    
 @login_required
 def categoria(request):
   productos = Productos.objects.all().values()
+  subcategoria=Subcategorias.objects.all().values()
+  subcategoria=len(subcategoria)
   context = {
-    'productos': productos
+    'productos': productos,
+    'subcategoria':subcategoria
   }
   template =loader.get_template('AddProducto.html')
   return HttpResponse(template.render(context, request))

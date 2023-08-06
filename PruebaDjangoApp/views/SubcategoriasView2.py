@@ -33,7 +33,7 @@ def delete( request, pk):
 @login_required
 def edicionP(request, pk):
     subcategoria = Subcategorias.objects.get(pk=pk)
-    return render(request, "EditarCategoria.html", {"subcategoria": subcategoria})
+    return render(request, "EditarSubcategoria.html", {"subcategoria": subcategoria})
 
 @login_required
 def editarP(request,pk):
@@ -47,14 +47,14 @@ def editarP(request,pk):
     subcategorias.save()
     messages.success(request, '¡subcategorias actualizado!')
 
-    return redirect('/EditCategoria/')
+    return redirect('/EditSubcategoria/')
 
 @login_required
 def categoria(request):
-  subcategoria = Subcategorias.objects.all().values()
-  context = {
+    subcategoria = Subcategorias.objects.all().values()
+    context = {
     'subcategoria': subcategoria
   }
   
-  template =loader.get_template('AddSupcategoria.html')
-  return HttpResponse(template.render(context, request))
+    template =loader.get_template('AddSupcategoria.html')
+    return HttpResponse(template.render(context, request))
